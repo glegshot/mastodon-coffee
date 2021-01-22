@@ -1,0 +1,3 @@
+println "this is executed during initialization phase"
+
+print "there are three phases in gradle build lifeycle"
