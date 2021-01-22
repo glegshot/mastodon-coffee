@@ -1,0 +1,28 @@
+task hello{
+	println "we are in hello task configuration"
+	doLast{
+		String name = "glegshot"
+		println "hello!! ${name}"
+	}
+}
+
+
+task count{
+	dependsOn hello
+	println ("we are in count task configuration")
+	doLast{
+		5.times{
+			println "${it}"
+		}
+	}
+}
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+    }
+}
