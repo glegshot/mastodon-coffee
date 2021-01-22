@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+    }
+}
+
 task hello{
 	println "we are in hello task configuration"
 	doLast{
@@ -17,12 +26,10 @@ task count{
 	}
 }
 
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
-    }
+task encode{
+	doLast{
+		def byte[] encodedString = Base64.getEncoder().encodeToString("hello\n".getBytes())
+		println new String(encodedString)
+	}
 }
+
