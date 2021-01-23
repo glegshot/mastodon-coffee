@@ -15,6 +15,13 @@ sourceCompatibility = "${javaversion}"
 targetCompatibility = "${javaversion}"
 version = '0.0.1'
 
+sourceSets {
+    integrationtest {
+        java {
+            srcDir 'src/integrationtest/java'
+        }
+    }
+}
 
 task hello{
 	println "we are in hello task configuration"
