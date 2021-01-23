@@ -49,3 +49,14 @@ task encode{
 	}
 }
 
+dependencies{
+
+	repositories {
+        mavenCentral()
+    }
+
+	integrationtestImplementation 'junit:junit:4.12'
+	testImplementation 'junit:junit:4.12'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.12'
+
+}
