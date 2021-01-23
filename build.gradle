@@ -7,6 +7,11 @@ buildscript {
     }
 }
 
+plugins{
+	id 'java'
+}
+
+
 task hello{
 	println "we are in hello task configuration"
 	doLast{
