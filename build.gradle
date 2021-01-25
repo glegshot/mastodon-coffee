@@ -23,6 +23,21 @@ sourceSets {
     }
 }
 
+task uberJar(type: Jar){
+
+    from sourceSets.main.output
+	manifest {
+        attributes(
+                'Main-Class': 'HelloWorld'
+        )
+    }
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
 task hello{
 	println "we are in hello task configuration"
 	doLast{
